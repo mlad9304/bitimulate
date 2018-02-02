@@ -1,0 +1,28 @@
+@import "utils";
+
+.header {
+  height: 3.5rem;
+  display: flex;
+  flex-direction: row;
+
+  .responsive {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include responsive();
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    .right-side {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+
+  .login-button {
+    margin-left: 1rem;
+    &:hover {
+      color: material-color('teal', '500');
+    }
+  }
+}

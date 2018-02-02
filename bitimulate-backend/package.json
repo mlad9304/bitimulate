@@ -1,0 +1,26 @@
+{
+  "name": "bitimulate-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^4.0.0",
+    "joi": "^13.1.1",
+    "jsonwebtoken": "^8.1.1",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.3.0",
+    "mongoose": "^4.13.9",
+    "mongoose-double": "^0.0.1",
+    "ws": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  },
+  "scripts": {
+    "start:dev": "NODE_PATH=src nodemon --watch src/ src/index.js",
+    "crawler:dev": "NODE_PATH=src nodemon --watch src/crawler src/crawler/index.js"
+  }
+}

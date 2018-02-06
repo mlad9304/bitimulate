@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './LoginModal.scss';
 import classNames from 'classnames/bind';
-import { Modal, Input, Button, TextButton } from 'components';
+import { Modal, Input, Button, TextButton, SocialLoginButton } from 'components';
 
 
 const cx = classNames.bind(styles);
@@ -36,6 +36,7 @@ const LoginModal = ({visible}) => {
               <div className={cx('or')}>OR</div>
             </div>
             <h3>Login with Social Account</h3>
+            <SocialLoginButton />
         </div>
       </div>
     </Modal>

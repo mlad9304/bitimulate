@@ -3,8 +3,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { LoginModal } from 'components';
+import onClickOutside from "react-onclickoutside";
+import * as baseActions from 'store/modules/base';
 
 class LoginModalContainer extends Component {
+
+  handleClickOutside = evt => {
+    const { visible, BaseActions } = this.props;
+    if(!visible) return;
+    BaseActions.setScreenMaskVisibility(false);
+  };
   render() {
     const {visible} = this.props;
     return (
@@ -18,6 +26,6 @@ export default connect(
     visible: state.base.getIn(['screenMask', 'visible'])
   }),
   (dispatch) => ({
-
+    BaseActions: bindActionCreators(baseActions, dispatch)
   })
-)(LoginModalContainer);
+)(onClickOutside(LoginModalContainer));

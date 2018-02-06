@@ -1,10 +1,16 @@
 import React from 'react';
+import styles from './Input.scss';
+import classNames from 'classnames/bind';
 
+const cx = classNames.bind(styles);
 
-const Input1 = () => {
+const Input = ({big, fullWidth, className, ...rest}) => {
   return (
-    <div />
+    <input className={cx('input', {
+      big,
+      'full-width': fullWidth
+    }, className)} {...rest}/>
   );
 };
 
-export default Input1;
+export default Input;

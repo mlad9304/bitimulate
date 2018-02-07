@@ -6,10 +6,21 @@ import { Modal, Input, Button, TextButton, SocialLoginButton } from 'components'
 
 const cx = classNames.bind(styles);
 
-const LoginModal = ({visible, mode, onChangeMode}) => {
+const LoginModal = ({
+  visible,
+  mode,
+  forms,
+  onChangeInput,
+  onChangeMode
+}) => {
   const isLogin = mode === 'login';
   const modeText = isLogin ? 'Login' : 'Signup';
   const invertedText = isLogin ? 'Signup' : 'Login';
+
+  const {
+    email,
+    password
+  } = forms.toJS();
 
   return (
     <Modal visible={visible}>
@@ -19,10 +30,14 @@ const LoginModal = ({visible, mode, onChangeMode}) => {
           <h3>{modeText} with email</h3>
             <div className={cx('form')}>
               <Input
+                value={email}
+                onChange={onChangeInput}
                 name="email"
                 fullWidth big
                 placeholder="Email"/>
               <Input
+                value={password}
+                onChange={onChangeInput}
                 name="password"
                 fullWidth big
                 placeholder="Password"

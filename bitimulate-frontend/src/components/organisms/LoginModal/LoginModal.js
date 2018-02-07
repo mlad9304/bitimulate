@@ -6,13 +6,17 @@ import { Modal, Input, Button, TextButton, SocialLoginButton } from 'components'
 
 const cx = classNames.bind(styles);
 
-const LoginModal = ({visible}) => {
+const LoginModal = ({visible, mode, onChangeMode}) => {
+  const isLogin = mode === 'login';
+  const modeText = isLogin ? 'Login' : 'Signup';
+  const invertedText = isLogin ? 'Signup' : 'Login';
+
   return (
     <Modal visible={visible}>
       <div className={cx('login-modal')}>
         <div className={cx('bar')}></div>
         <div className={cx('content')}>
-          <h3>Login with email</h3>
+          <h3>{modeText} with email</h3>
             <div className={cx('form')}>
               <Input
                 name="email"
@@ -30,12 +34,12 @@ const LoginModal = ({visible}) => {
               className={cx('login')}>Login</Button>
             <div className={cx('login-foot')}>
               <TextButton>Forgot password</TextButton>
-              <TextButton right >Signup</TextButton>
+              <TextButton right onClick={onChangeMode} >{invertedText}</TextButton>
             </div>
             <div className={cx('separator')}>
               <div className={cx('or')}>OR</div>
             </div>
-            <h3>Login with Social Account</h3>
+            <h3>{modeText} with Social Account</h3>
             <SocialLoginButton />
         </div>
       </div>
